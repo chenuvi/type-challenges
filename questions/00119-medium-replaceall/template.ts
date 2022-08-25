@@ -5,5 +5,3 @@ type ReplaceAll<S extends string, From extends string, To extends string> = S ex
     : S
 
 type Null = string extends {} ? true : false
-
-type _T7 = 'a' extends 'a' | 'b' | 'c' ? true : false;
