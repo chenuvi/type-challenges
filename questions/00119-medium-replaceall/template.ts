@@ -1,9 +1,7 @@
-type ReplaceAll<
-  S extends string,
-  from extends string,
-  to extends string
-> = S extends `${infer L}${from}${infer R}`
-  ? from extends ""
-    ? S
-    : `${ReplaceAll<L, from, to>}${to}${ReplaceAll<R, from, to>}`
-  : S
+type ReplaceAll<S extends string, From extends string, To extends string> = S extends `${infer L}${From}${infer R}`
+    ? From extends ''
+        ? S
+        : `${ReplaceAll<L, From, To>}${To}${ReplaceAll<R, From, To>}`
+    : S
+
+type Null = string extends {} ? true : false
