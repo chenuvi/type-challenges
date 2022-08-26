@@ -9,5 +9,5 @@
 // type First<T extends any[]> = T[0] extends T[number] ? T[0] : never
 
 // 4
-type First<T extends any[]> = T extends [infer First, ...infer Rest] ? First : never
+type First<T extends any[]> = T extends [infer First, ...unknown[]] ? First : never
 
