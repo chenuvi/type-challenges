@@ -51,8 +51,10 @@ type NoNameNodeC = {
 type Nodes = NodeA | NodeB | NodeC
 type ReplacedNodes = ReplacedNodeA | ReplacedNodeB | ReplacedNodeC
 type NodesNoName = NoNameNodeA | NoNameNodeC | NodeB
-
+// 结果：{ id: number; name: boolean; }
+type result = ReplaceKeys<{ id: number; name: string }, 'name', { name: boolean }>
 type cases = [
+  Expect<Equal<result, { id: number; name: boolean }>>,
   Expect<Equal<ReplaceKeys<Nodes, 'name' | 'flag', { name: number; flag: string }>, ReplacedNodes>>,
   Expect<Equal<ReplaceKeys<Nodes, 'name', { aa: number }>, NodesNoName>>,
 ]
